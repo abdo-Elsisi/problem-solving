@@ -1,0 +1,27 @@
+1) read num of elements and the array
+2)intialize vars:
+	numOfOnes = 0;//num of ones: total num of ones exist in array originally
+	flippedMaxOnes = - infinity; // the seq will be flipped num of ones
+	flippedSeqOnes --> will be calculate for each sequnce and updat flippedMaxOnes if it's greater
+	ex: flipping [1 1] --> [0 0] => flippedSeqOnes = -2
+		flipping [0 0] --> [1 1] => flippedSeqOnes = 2
+		flipping [0 1] --> [1 0] => flippedSeqOnes = 0
+	left = 0; //start index of current sequnce
+	right = 0; // end index of current sequnce
+	arr -> user input of 0s and 1s
+3)iterate over the arr
+	for each arr[i]
+		if arr[i] = 1
+			numOfOnes ++
+			update flippedSeqOnes; --> decrement by 1
+			flippedSeqOnes > flippedMaxOnes? update flippedMaxOnes;
+			if(flippedSeqOnes < 0)?
+				end sequnce;
+				start new sequnce (left = right = i+1)
+				
+		else //arr[i] = 0
+			update flippedSeqOnes; --> increment by 1
+			flippedSeqOnes > flippedMaxOnes? update flippedMaxOnes;
+			update sequnce end(right = i)
+4)return num of ones after flipping 
+	return numOfOnes + flippedMaxOnes
